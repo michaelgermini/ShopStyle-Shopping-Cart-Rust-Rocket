@@ -5,7 +5,14 @@
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0+-blue.svg)](https://tailwindcss.com/)
 
-Un site e-commerce moderne avec un **mega menu étendu** à 7 colonnes, développé avec **HTML5**, **TailwindCSS**, **Node.js** et **Rust**. Inclut un démonstrateur HTML autonome et un serveur backend complet.
+A modern e-commerce website with an **extended mega menu** featuring 7 columns, developed with **HTML5**, **TailwindCSS**, **Node.js** and **Rust**. Includes a standalone HTML demo and complete backend server.
+
+## 📍 Repository Status
+
+🟢 **This project is live on GitHub!**  
+🔗 **Repository**: [https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket](https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket)
+
+⭐ **Don't forget to star the repository if you find it useful!**
 
 ## 🚀 Quick Start
 
@@ -16,8 +23,8 @@ Un site e-commerce moderne avec un **mega menu étendu** à 7 colonnes, dévelop
 ### Installation and Launch
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/shopstyle.git
-cd shopstyle
+git clone https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket.git
+cd ShopStyle-Shopping-Cart-Rust-Rocket
 
 # Install dependencies
 npm install
@@ -205,6 +212,21 @@ For any questions or issues:
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
+### Quick Contribution Steps
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "feat: add your feature"`
+4. Push to your fork: `git push origin feature/your-feature-name`
+5. Create a Pull Request
+
+### Development Setup
+```bash
+# After cloning the repository
+npm install
+node server.js
+# Visit http://localhost:8000
+```
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -237,10 +259,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- **📱 Demo**: [Live Demo](https://your-username.github.io/shopstyle)
-- **📖 Documentation**: [Wiki](https://github.com/your-username/shopstyle/wiki)
-- **🐛 Issues**: [GitHub Issues](https://github.com/your-username/shopstyle/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/your-username/shopstyle/discussions)
+- **📱 Demo**: [Live Demo](https://michaelgermini.github.io/ShopStyle-Shopping-Cart-Rust-Rocket)
+- **📖 Documentation**: [Wiki](https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket/wiki)
+- **🐛 Issues**: [GitHub Issues](https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket/discussions)
+- **🌟 Repository**: [GitHub Repository](https://github.com/michaelgermini/ShopStyle-Shopping-Cart-Rust-Rocket)
 
 ---
 
