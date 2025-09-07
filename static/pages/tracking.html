@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - ShopStyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-lg">
+        <div class="bg-blue-600 text-white text-center py-2 text-sm">ðŸŽ‰ Free shipping from â‚¬50 purchase! ðŸŽ‰</div>
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="../index.html" class="text-2xl font-bold text-blue-600">ShopStyle</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="support.html" class="text-gray-700 hover:text-blue-600">Support</a>
+                    <a href="tracking.html" class="text-blue-600 font-semibold">Tracking</a>
+                </nav>
+                <a href="cart.html" class="text-gray-600 hover:text-blue-600">🛒</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Track Your Order</h1>
+
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Enter Tracking Information</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Order Number</label>
+                        <input type="text" placeholder="Enter your order number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" placeholder="Enter the email used for your order" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+
+                    <button class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+                        Track Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Tracking Information</h2>
+
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <span class="text-green-600">✓</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Order Confirmed</h3>
+                            <p class="text-gray-600 text-sm">December 15, 2024 - 10:30 AM</p>
+                            <p class="text-gray-600">Your order has been confirmed and is being prepared.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <span class="text-blue-600">📦</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Order Packed</h3>
+                            <p class="text-gray-600 text-sm">December 16, 2024 - 2:15 PM</p>
+                            <p class="text-gray-600">Your order has been packed and handed to our delivery partner.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                            <span class="text-gray-400">🚚</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">In Transit</h3>
+                            <p class="text-gray-600 text-sm">Expected: December 18, 2024</p>
+                            <p class="text-gray-600">Your package is on its way to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                            <span class="text-gray-400">📍</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Out for Delivery</h3>
+                            <p class="text-gray-600 text-sm">Expected: December 18, 2024</p>
+                            <p class="text-gray-600">Your package will be delivered today.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h3 class="font-semibold text-blue-900 mb-2">Tracking Number</h3>
+                    <p class="text-blue-800 font-mono">TRK123456789012345</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-600 mb-4">Need help with your order?</p>
+                <a href="contact.html" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700">
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2024 ShopStyle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

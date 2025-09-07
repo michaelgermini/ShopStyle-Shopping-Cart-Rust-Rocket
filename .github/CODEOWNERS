@@ -1,0 +1,26 @@
+# This file defines the code owners for this repository
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners
+* @your-username
+
+# Frontend files
+/static/ @your-username
+*.html @your-username
+*.css @your-username
+*.js @your-username
+
+# Backend files
+/server.js @your-username
+/src/ @your-username
+*.rs @your-username
+
+# Documentation
+README.md @your-username
+CONTRIBUTING.md @your-username
+LICENSE @your-username
+
+# Configuration files
+package.json @your-username
+Cargo.toml @your-username
+.github/ @your-username

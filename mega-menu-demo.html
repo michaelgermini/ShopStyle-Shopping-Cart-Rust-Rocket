@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopStyle - Mega Menu Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mega Menu Custom Styles */
+        .mega-menu {
+            transform-origin: top center;
+        }
+
+        .group:hover .mega-menu {
+            animation: megaMenuFadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes megaMenuFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .menu-item {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transition: width 0.3s ease;
+        }
+
+        .menu-item:hover::before {
+            width: 100%;
+        }
+
+        .category-icon {
+            transition: all 0.3s ease;
+        }
+
+        .category-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mega-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 40;
+        }
+
+        .group:hover .mega-menu-backdrop {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mega-column {
+            transition: all 0.3s ease;
+        }
+
+        .mega-column:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <!-- Top promotional banner -->
+        <div class="bg-blue-600 text-white text-center py-2 text-sm">
+            ðŸŽ‰ Free shipping from â‚¬50 purchase! ðŸŽ‰
+        </div>
+
+        <!-- Main header -->
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                        <span class="text-2xl font-bold text-gray-800">ShopStyle</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="menu-item text-gray-700 hover:text-blue-600 font-medium transition duration-200">Home</a>
+                    <!-- Mega Menu -->
+                    <div class="relative group">
+                        <!-- Mega Menu Backdrop -->
+                        <div class="mega-menu-backdrop"></div>
+                        <button class="text-gray-700 hover:text-blue-600 font-medium transition duration-200 flex items-center">
+                            Shop by Category
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Mega Menu Dropdown -->
+                        <div class="mega-menu absolute left-0 mt-2 w-screen max-w-7xl bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+                            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 p-8">
+
+                                <!-- Column 1: Electronics -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Electronics</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#smartphone" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Smartphones</a>
+                                        <a href="#laptop" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Laptops & Computers</a>
+                                        <a href="#headphones" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Headphones & Audio</a>
+                                        <a href="#smartwatch" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Smartwatches</a>
+                                        <a href="#tablet" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Tablets</a>
+                                        <a href="#console" class="block text-sm text-gray-600 hover:text-blue-600 transition duration-200">Gaming Consoles</a>
+                                        <a href="#electronics" class="block text-sm font-medium text-blue-600 hover:text-blue-700 transition duration-200 pt-2">View All Electronics →</a>
+                                    </div>
+                                </div>
+
+                                <!-- Column 2: Fashion & Lifestyle -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Fashion & Lifestyle</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#clothing" class="block text-sm text-gray-600 hover:text-purple-600 transition duration-200">Clothing & Apparel</a>
+                                        <a href="#new-arrivals" class="block text-sm text-gray-600 hover:text-purple-600 transition duration-200">New Arrivals</a>
+                                        <a href="#collections" class="block text-sm text-gray-600 hover:text-purple-600 transition duration-200">Collections</a>
+                                        <a href="#promotions" class="block text-sm text-gray-600 hover:text-purple-600 transition duration-200">Promotions</a>
+                                        <a href="#size-guide" class="block text-sm text-gray-600 hover:text-purple-600 transition duration-200">Size Guide</a>
+                                        <div class="pt-2">
+                                            <p class="text-xs text-gray-500 mb-1">Featured</p>
+                                            <a href="#collections" class="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">Premium Collection</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Column 3: Home & Garden -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Home & Garden</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#home-decor" class="block text-sm text-gray-600 hover:text-green-600 transition duration-200">Home Decor</a>
+                                        <a href="#kitchen" class="block text-sm text-gray-600 hover:text-green-600 transition duration-200">Kitchen & Dining</a>
+                                        <a href="#garden" class="block text-sm text-gray-600 hover:text-green-600 transition duration-200">Garden & Outdoor</a>
+                                        <a href="#furniture" class="block text-sm text-gray-600 hover:text-green-600 transition duration-200">Furniture</a>
+                                        <a href="#speaker" class="block text-sm text-gray-600 hover:text-green-600 transition duration-200">Smart Home Devices</a>
+                                        <div class="pt-2">
+                                            <p class="text-xs text-gray-500 mb-1">Seasonal</p>
+                                            <a href="#collections" class="inline-block bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Spring Collection</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Column 4: Sports & Fitness -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Sports & Fitness</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#sports" class="block text-sm text-gray-600 hover:text-red-600 transition duration-200">Sports Equipment</a>
+                                        <a href="#fitness" class="block text-sm text-gray-600 hover:text-red-600 transition duration-200">Fitness & Gym</a>
+                                        <a href="#outdoor" class="block text-sm text-gray-600 hover:text-red-600 transition duration-200">Outdoor & Camping</a>
+                                        <a href="#cycling" class="block text-sm text-gray-600 hover:text-red-600 transition duration-200">Cycling</a>
+                                        <a href="#running" class="block text-sm text-gray-600 hover:text-running-600 transition duration-200">Running & Jogging</a>
+                                        <a href="#swimming" class="block text-sm text-gray-600 hover:text-red-600 transition duration-200">Swimming</a>
+                                        <a href="#sports" class="block text-sm font-medium text-red-600 hover:text-red-700 transition duration-200 pt-2">View All Sports →</a>
+                                    </div>
+                                </div>
+
+                                <!-- Column 5: Beauty & Health -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Beauty & Health</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#skincare" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Skincare</a>
+                                        <a href="#makeup" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Makeup & Cosmetics</a>
+                                        <a href="#haircare" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Hair Care</a>
+                                        <a href="#perfume" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Perfumes & Fragrances</a>
+                                        <a href="#wellness" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Wellness & Spa</a>
+                                        <a href="#supplements" class="block text-sm text-gray-600 hover:text-pink-600 transition duration-200">Health Supplements</a>
+                                        <div class="pt-2">
+                                            <p class="text-xs text-gray-500 mb-1">Trending</p>
+                                            <a href="#skincare" class="inline-block bg-pink-100 text-pink-700 px-2 py-1 rounded-full text-xs font-medium">Organic Skincare</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Column 6: Books & Entertainment -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Books & Entertainment</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#books" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Books & Literature</a>
+                                        <a href="#movies" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Movies & TV Shows</a>
+                                        <a href="#music" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Music & Audio</a>
+                                        <a href="#games" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Video Games</a>
+                                        <a href="#toys" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Toys & Hobbies</a>
+                                        <a href="#art" class="block text-sm text-gray-600 hover:text-indigo-600 transition duration-200">Art & Collectibles</a>
+                                        <a href="#books" class="block text-sm font-medium text-indigo-600 hover:text-indigo-700 transition duration-200 pt-2">View All Entertainment →</a>
+                                    </div>
+                                </div>
+
+                                <!-- Column 7: Services & Support -->
+                                <div class="mega-column space-y-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="category-icon w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-semibold text-gray-900 text-lg">Services & Support</h3>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <a href="#shipping" class="block text-sm text-gray-600 hover:text-orange-600 transition duration-200">Shipping & Delivery</a>
+                                        <a href="#support" class="block text-sm text-gray-600 hover:text-orange-600 transition duration-200">Customer Support</a>
+                                        <a href="#faq" class="block text-sm text-gray-600 hover:text-orange-600 transition duration-200">FAQ</a>
+                                        <a href="#tracking" class="block text-sm text-gray-600 hover:text-orange-600 transition duration-200">Order Tracking</a>
+                                        <a href="#contact" class="block text-sm text-gray-600 hover:text-orange-600 transition duration-200">Contact Us</a>
+                                        <div class="border-t pt-2 mt-2">
+                                            <p class="text-xs text-gray-500 mb-2">Quick Links</p>
+                                            <div class="space-y-1">
+                                                <a href="#account" class="block text-xs text-gray-500 hover:text-orange-600 transition duration-200">My Account</a>
+                                                <a href="#cart" class="block text-xs text-gray-500 hover:text-orange-600 transition duration-200">Shopping Cart</a>
+                                                <a href="#orders" class="block text-xs text-gray-500 hover:text-orange-600 transition duration-200">Order History</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Featured Banner -->
+                            <div class="border-t border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">🔥 Special Offer</h4>
+                                        <p class="text-sm text-gray-600">Free shipping on orders over $50</p>
+                                    </div>
+                                    <a href="#promotions" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200 text-sm font-medium">
+                                        Shop Now →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#promotions" class="menu-item text-gray-700 hover:text-blue-600 font-medium transition duration-200">Promotions</a>
+                    <a href="#new-arrivals" class="menu-item text-gray-700 hover:text-blue-600 font-medium transition duration-200">New Arrivals</a>
+                    <a href="#collections" class="menu-item text-gray-700 hover:text-blue-600 font-medium transition duration-200">Collections</a>
+                </nav>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8">
+                    <div class="relative">
+                        <input type="text"
+                               placeholder="Search for a product..."
+                               class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <button class="absolute right-2 top-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition duration-200">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="#account" class="text-gray-600 hover:text-blue-600 transition duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </a>
+                    <a href="#cart" class="text-gray-600 hover:text-blue-600 transition duration-200 relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.067 4H19M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m0 0V9a2 2 0 012-2h4a2 2 0 012 2v4"></path>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Welcome to ShopStyle</h1>
+            <p class="text-xl mb-8">Discover the ultimate shopping experience with our mega menu</p>
+            <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200">
+                Start Shopping →
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Featured Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop" alt="iPhone 15 Pro Max" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">iPhone 15 Pro Max</h3>
+                        <p class="text-gray-600 text-sm mb-4">Latest smartphone technology</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$1,299</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=300&fit=crop" alt="MacBook Pro" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">MacBook Pro 16"</h3>
+                        <p class="text-gray-600 text-sm mb-4">Professional laptop power</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$2,499</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop" alt="AirPods Pro" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">AirPods Pro</h3>
+                        <p class="text-gray-600 text-sm mb-4">Premium wireless audio</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$249</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=300&fit=crop" alt="Apple Watch Ultra" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">Apple Watch Ultra</h3>
+                        <p class="text-gray-600 text-sm mb-4">Adventure-ready smartwatch</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$799</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ShopStyle</h3>
+                    <p class="text-gray-400 mb-4">Your ultimate shopping destination for the latest trends and best deals.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">📷</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">💼</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition duration-200">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition duration-200">Contact</a></li>
+                        <li><a href="#faq" class="hover:text-white transition duration-200">FAQ</a></li>
+                        <li><a href="#shipping" class="hover:text-white transition duration-200">Shipping</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#electronics" class="hover:text-white transition duration-200">Electronics</a></li>
+                        <li><a href="#clothing" class="hover:text-white transition duration-200">Clothing</a></li>
+                        <li><a href="#home" class="hover:text-white transition duration-200">Home & Garden</a></li>
+                        <li><a href="#collections" class="hover:text-white transition duration-200">Collections</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#support" class="hover:text-white transition duration-200">Customer Support</a></li>
+                        <li><a href="#tracking" class="hover:text-white transition duration-200">Order Tracking</a></li>
+                        <li><a href="#legal" class="hover:text-white transition duration-200">Legal</a></li>
+                        <li><a href="#stores" class="hover:text-white transition duration-200">Store Locator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 ShopStyle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple demo functionality
+        console.log('🚀 ShopStyle Mega Menu Demo Loaded!');
+        console.log('🎯 7 colonnes dans le mega menu');
+        console.log('📱 Design responsive complet');
+        console.log('⚡ Animations fluides');
+
+        // Add click handlers for demo
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href').substring(1);
+                console.log(`🔗 Navigation vers: ${target}`);
+
+                // Simple feedback
+                const button = this;
+                const originalText = button.textContent;
+                button.textContent = '✓ Visited!';
+                button.style.backgroundColor = '#10b981';
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
